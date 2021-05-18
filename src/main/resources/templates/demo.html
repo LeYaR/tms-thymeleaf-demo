@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Quantity</th>
+    </tr>
+    <th:block th:each="demo : ${demos}">
+        <tr>
+            <td th:text="${demo.name}"></td>
+            <td th:text="${demo.quantity}"></td>
+        </tr>
+    </th:block>
+</table>
+
+<form action="/demo" method="post" th:object="${demo}">
+    <label>Name
+        <input name="name" type="text" required>
+    </label>
+    <label>Quantity
+        <input name="quantity" type="number" required>
+    </label>
+    <input type="submit" value="Create demo">
+</form>
+</body>
+</html>
